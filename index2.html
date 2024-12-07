@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="src/style2.css">
+    <style>
+        /* Estilo do balão de fala existente */
+        .victory-screen {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: white;
+            padding: 20px;
+            border: 2px solid black;
+            border-radius: 10px;
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+            font-family: 'Press Start 2P', sans-serif; /* Definindo a fonte pixel art aqui */
+        }
+
+        /* Estilo dos corações da cascata */
+        .falling-heart {
+            position: absolute;
+            background-color: #f00;
+            clip-path: polygon(50% 100%, 0% 40%, 0% 20%, 25% 0%, 50% 20%, 75% 0%, 100% 20%, 100% 40%);
+            animation: fall linear forwards;
+        }
+
+        /* Animação da queda dos corações */
+        @keyframes fall {
+            0% {
+                transform: translateY(0) scale(1);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(100vh) scale(1.5);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <audio id="background-music" src="./src/assets/audios/bts.mp4" autoplay loop></audio>
+    <div class="container">
+        <div class="heart"></div>
+    </div>
+
+    <!-- O balão de fala já existente -->
+    <div class="victory-screen">
+        Obrigado por ser incrível, amor! TE AMO!!!
+    </div>
+
+    <script>
+        // Tela de vitória
+        const victoryScreen = document.createElement("div");
+        victoryScreen.className = "victory-screen";
+        victoryScreen.textContent = "Obrigado por ser incrível, amor! TE AMO!!!";
+        document.body.append(victoryScreen);
+
+        // Função de chuva de corações
+        function rain(){
+            let heart = document.querySelector('.heart');
+            let e = document.createElement('div');
+            e.classList.add('falling-heart');
+            heart.appendChild(e);
+
+            let left = Math.floor(Math.random() * 300);
+            let size = Math.random() * 10 + 10; // Tamanho aleatório para os corações
+            let duration = Math.random() * 2 + 1; // Duração entre 1s e 3s
+
+            e.style.left = left + 'px';
+            e.style.width = size + 'px';
+            e.style.height = size + 'px';
+            e.style.animationDuration = duration + 's';
+
+            setTimeout(function(){
+                heart.removeChild(e);
+            }, duration * 1000); // Remover após a duração total
+        }
+
+        // Intervalo para gerar os corações caindo
+        setInterval(function(){
+            rain();
+        }, 50); // Diminui o intervalo para aumentar ainda mais a quantidade de corações
+    </script>
+</body>
+</html>
