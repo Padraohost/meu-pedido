@@ -1,0 +1,881 @@
+<!DOCTYPE html>
+<html lang="es-BO">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Importancia de Donar Sangre en Bolivia</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #f8d7da, #dc3545);
+            color: #333;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        header {
+            text-align: center;
+            padding: 20px 0;
+            margin-bottom: 30px;
+            position: relative;
+        }
+        
+        .logo {
+            background-color: #dc3545;
+            color: white;
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 15px;
+            font-size: 40px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+        
+        h1 {
+            color: #fff;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            font-size: 2.8rem;
+            margin-bottom: 10px;
+            background: rgba(220, 53, 69, 0.8);
+            padding: 10px 20px;
+            border-radius: 50px;
+            display: inline-block;
+        }
+        
+        .subtitle {
+            color: #fff;
+            font-size: 1.4rem;
+            max-width: 800px;
+            margin: 0 auto;
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+        }
+        
+        .presentation-container {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            overflow: hidden;
+            position: relative;
+            min-height: 600px;
+        }
+        
+        .slide {
+            padding: 40px;
+            display: none;
+            min-height: 600px;
+        }
+        
+        .slide.active {
+            display: block;
+            animation: fadeIn 0.8s ease;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .slide-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid #dc3545;
+        }
+        
+        .slide-icon {
+            background: #dc3545;
+            color: white;
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            margin-right: 20px;
+            flex-shrink: 0;
+        }
+        
+        .slide-title {
+            color: #dc3545;
+            font-size: 2.2rem;
+            font-weight: 700;
+        }
+        
+        .slide-content {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            margin-bottom: 30px;
+        }
+        
+        .slide-content p {
+            margin-bottom: 15px;
+        }
+        
+        .card-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin: 30px 0;
+        }
+        
+        .card {
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-top: 5px solid #dc3545;
+        }
+        
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .card-title {
+            color: #dc3545;
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .card-title i {
+            margin-right: 10px;
+        }
+        
+        .card-content {
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+        
+        .list-group {
+            list-style-type: none;
+            margin: 20px 0;
+        }
+        
+        .list-group li {
+            padding: 12px 20px;
+            margin-bottom: 10px;
+            background: #f8d7da;
+            border-radius: 8px;
+            position: relative;
+            padding-left: 50px;
+            font-size: 1.1rem;
+        }
+        
+        .list-group li:before {
+            content: "✓";
+            position: absolute;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #dc3545;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+        
+        .table-container {
+            overflow-x: auto;
+            margin: 30px 0;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        th, td {
+            padding: 15px;
+            text-align: center;
+        }
+        
+        thead {
+            background: #dc3545;
+            color: white;
+        }
+        
+        tbody tr:nth-child(even) {
+            background: #f8d7da;
+        }
+        
+        tbody tr:hover {
+            background: #f1b0b7;
+        }
+        
+        .controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+            background: #f8d7da;
+            border-top: 1px solid #dc3545;
+        }
+        
+        .progress-container {
+            flex-grow: 1;
+            background: #f1b0b7;
+            height: 10px;
+            border-radius: 5px;
+            margin: 0 20px;
+            overflow: hidden;
+        }
+        
+        .progress-bar {
+            height: 100%;
+            background: #dc3545;
+            width: 0%;
+            transition: width 0.5s ease;
+        }
+        
+        .btn {
+            background: #dc3545;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            box-shadow: 0 4px 10px rgba(220, 53, 69, 0.3);
+        }
+        
+        .btn:hover {
+            background: #bd2130;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(220, 53, 69, 0.4);
+        }
+        
+        .btn i {
+            margin-right: 8px;
+        }
+        
+        .btn-restart {
+            background: #6c757d;
+        }
+        
+        .btn-restart:hover {
+            background: #5a6268;
+        }
+        
+        .counter {
+            color: #dc3545;
+            font-weight: 700;
+            font-size: 1.2rem;
+            min-width: 120px;
+            text-align: center;
+        }
+        
+        .blood-drop {
+            position: absolute;
+            width: 40px;
+            height: 60px;
+            background: #dc3545;
+            border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+            opacity: 0.4;
+            animation: float 6s infinite ease-in-out;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(10deg); }
+        }
+        
+        footer {
+            text-align: center;
+            padding: 30px 0;
+            color: white;
+            font-size: 1.1rem;
+            margin-top: 30px;
+        }
+        
+        .blood-banks {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 15px;
+        }
+        
+        .city-tag {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 8px 15px;
+            border-radius: 50px;
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 768px) {
+            .slide {
+                padding: 25px 15px;
+                min-height: 500px;
+            }
+            
+            .slide-header {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .slide-icon {
+                margin-right: 0;
+                margin-bottom: 15px;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .controls {
+                flex-wrap: wrap;
+                gap: 15px;
+            }
+            
+            .progress-container {
+                order: 3;
+                width: 100%;
+                margin: 10px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Blood drop decorations -->
+    <div class="blood-drop" style="top: 10%; left: 5%;"></div>
+    <div class="blood-drop" style="top: 20%; right: 7%; animation-delay: 1s;"></div>
+    <div class="blood-drop" style="top: 40%; left: 8%; animation-delay: 2s;"></div>
+    <div class="blood-drop" style="bottom: 15%; right: 10%; animation-delay: 3s;"></div>
+    
+    <div class="container">
+        <header>
+            <div class="logo">
+                <i class="fas fa-tint"></i>
+            </div>
+            <h1>Importancia de Donar Sangre en Bolivia</h1>
+            <p class="subtitle">Cada donación puede salvar hasta 3 vidas. Únete a esta noble causa.</p>
+        </header>
+        
+        <div class="presentation-container">
+            <!-- Slide 1: Introducción -->
+            <div class="slide active" id="slide1">
+                <div class="slide-header">
+                    <div class="slide-icon">
+                        <i class="fas fa-heartbeat"></i>
+                    </div>
+                    <h2 class="slide-title">Importancia de Donar Sangre</h2>
+                </div>
+                
+                <div class="slide-content">
+                    <p>La donación de sangre es un procedimiento por medio del cual podemos ayudar a salvar vidas. Es una acción solidaria que ayuda a salvar vidas y mantener saludables a muchas personas con determinadas enfermedades.</p>
+                    
+                    <div class="card-container">
+                        <div class="card">
+                            <h3 class="card-title"><i class="fas fa-heart"></i> Beneficios para el donante</h3>
+                            <div class="card-content">
+                                <ul class="list-group">
+                                    <li>Equilibra los niveles de hierro en la sangre</li>
+                                    <li>Reduce el riesgo de infartos y accidentes cardiovasculares</li>
+                                    <li>Mejora el flujo sanguíneo</li>
+                                    <li>Ayuda a depurar triglicéridos</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="card">
+                            <h3 class="card-title"><i class="fas fa-users"></i> Beneficios para la sociedad</h3>
+                            <div class="card-content">
+                                <ul class="list-group">
+                                    <li>Un donante puede ayudar hasta 3 personas con una sola donación</li>
+                                    <li>Cada día 100 personas salvan su vida en Bolivia gracias a transfusiones</li>
+                                    <li>La sangre no puede fabricarse artificialmente</li>
+                                    <li>Es esencial para cirugías, accidentes y tratamientos médicos</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Slide 2: Requisitos -->
+            <div class="slide" id="slide2">
+                <div class="slide-header">
+                    <div class="slide-icon">
+                        <i class="fas fa-clipboard-check"></i>
+                    </div>
+                    <h2 class="slide-title">Requisitos para Donar Sangre</h2>
+                </div>
+                
+                <div class="slide-content">
+                    <p>Para donar sangre en Bolivia, debes cumplir con los siguientes requisitos:</p>
+                    
+                    <div class="card-container">
+                        <div class="card">
+                            <h3 class="card-title"><i class="fas fa-user-check"></i> Condiciones básicas</h3>
+                            <div class="card-content">
+                                <ul class="list-group">
+                                    <li>Tener buen estado de salud</li>
+                                    <li>Acudir con carnet de identidad</li>
+                                    <li>Tener entre 18 y 60 años de edad</li>
+                                    <li>Tener un peso mayor a 50 kilos</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="card">
+                            <h3 class="card-title"><i class="fas fa-exclamation-circle"></i> Precauciones</h3>
+                            <div class="card-content">
+                                <ul class="list-group">
+                                    <li>No haber consumido alcohol 72 horas antes</li>
+                                    <li>No estar en ayunas antes de la donación</li>
+                                    <li>No presentar síntomas de COVID-19 ni haber estado en contacto con casos</li>
+                                    <li>No haberse hecho tatuajes o piercing en el último año</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <p class="mt-4"><strong>Nota:</strong> Los hombres pueden donar cada 3 meses y las mujeres cada 4 meses.</p>
+                </div>
+            </div>
+            
+            <!-- Slide 3: Mitos y Verdades -->
+            <div class="slide" id="slide3">
+                <div class="slide-header">
+                    <div class="slide-icon">
+                        <i class="fas fa-comments"></i>
+                    </div>
+                    <h2 class="slide-title">Mitos y Verdades sobre la Donación</h2>
+                </div>
+                
+                <div class="slide-content">
+                    <div class="card-container">
+                        <div class="card">
+                            <h3 class="card-title"><i class="fas fa-times-circle"></i> Mitos Comunes</h3>
+                            <div class="card-content">
+                                <ul class="list-group">
+                                    <li>Al donar sangre NO te debilitas</li>
+                                    <li>Al donar sangre NO contraes enfermedades</li>
+                                    <li>Al donar sangre NO alteras el peso corporal</li>
+                                    <li>Al donar sangre no pierdes tu ajayu (espíritu)</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="card">
+                            <h3 class="card-title"><i class="fas fa-check-circle"></i> Verdades Importantes</h3>
+                            <div class="card-content">
+                                <ul class="list-group">
+                                    <li>La sangre se necesita todos los días</li>
+                                    <li>NO es necesario estar en ayunas para donar</li>
+                                    <li>Con una donación se salvan hasta 3 vidas</li>
+                                    <li>La cantidad donada (450 ml) es solo el 10% de tu sangre total</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Slide 4: Beneficiarios -->
+            <div class="slide" id="slide4">
+                <div class="slide-header">
+                    <div class="slide-icon">
+                        <i class="fas fa-hand-holding-heart"></i>
+                    </div>
+                    <h2 class="slide-title">Quiénes se Benefician de tu Donación</h2>
+                </div>
+                
+                <div class="slide-content">
+                    <p>Diariamente en todos los hospitales de Bolivia, muchos pacientes requieren transfusiones sanguíneas:</p>
+                    
+                    <div class="card-container">
+                        <div class="card">
+                            <h3 class="card-title"><i class="fas fa-female"></i> Mujeres</h3>
+                            <div class="card-content">
+                                <ul class="list-group">
+                                    <li>Con complicaciones del embarazo</li>
+                                    <li>Durante el parto con hemorragias</li>
+                                    <li>Con anemia grave</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="card">
+                            <h3 class="card-title"><i class="fas fa-user-injured"></i> Pacientes</h3>
+                            <div class="card-content">
+                                <ul class="list-group">
+                                    <li>Con cáncer en tratamiento</li>
+                                    <li>Con anemia grave</li>
+                                    <li>Con infecciones graves</li>
+                                    <li>En hemodiálisis</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="card">
+                            <h3 class="card-title"><i class="fas fa-procedures"></i> Otros casos</h3>
+                            <div class="card-content">
+                                <ul class="list-group">
+                                    <li>Personas que sufrieron accidentes</li>
+                                    <li>Pacientes con intervenciones quirúrgicas</li>
+                                    <li>Personas que requieren trasplantes</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Slide 5: Componentes de la Sangre -->
+            <div class="slide" id="slide5">
+                <div class="slide-header">
+                    <div class="slide-icon">
+                        <i class="fas fa-microscope"></i>
+                    </div>
+                    <h2 class="slide-title">Componentes de la Sangre</h2>
+                </div>
+                
+                <div class="slide-content">
+                    <div class="card-container">
+                        <div class="card">
+                            <h3 class="card-title"><i class="fas fa-tint"></i> Plasma (55%)</h3>
+                            <div class="card-content">
+                                <p>Componente líquido que permite que las células sanguíneas circulen. Compuesto principalmente por agua (90%) con proteínas, azúcar, grasas, sales, hormonas, vitaminas y anticuerpos.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="card">
+                            <h3 class="card-title"><i class="fas fa-circle" style="color: #dc3545;"></i> Glóbulos Rojos</h3>
+                            <div class="card-content">
+                                <p>Transportan oxígeno desde los pulmones a todos los tejidos. Contienen hemoglobina que da el color rojo. Un mm³ contiene 4.5-6 millones en hombres y 4.0-5.2 millones en mujeres.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="card">
+                            <h3 class="card-title"><i class="fas fa-shield-alt"></i> Glóbulos Blancos</h3>
+                            <div class="card-content">
+                                <p>Defienden el organismo contra bacterias, virus y parásitos. Valores normales: 4,000-10,000 por mm³. Actúan como la "policía sanitaria" del cuerpo.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="card">
+                            <h3 class="card-title"><i class="fas fa-band-aid"></i> Plaquetas</h3>
+                            <div class="card-content">
+                                <p>Elementos más pequeños (150,000-400,000 por mm³) esenciales para la coagulación. Ayudan a detener hemorragias y en la cicatrización.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Slide 6: Grupos Sanguíneos -->
+            <div class="slide" id="slide6">
+                <div class="slide-header">
+                    <div class="slide-icon">
+                        <i class="fas fa-dna"></i>
+                    </div>
+                    <h2 class="slide-title">Grupos Sanguíneos y Compatibilidad</h2>
+                </div>
+                
+                <div class="slide-content">
+                    <div class="card-container">
+                        <div class="card">
+                            <h3 class="card-title"><i class="fas fa-vial"></i> Sistema ABO</h3>
+                            <div class="card-content">
+                                <ul class="list-group">
+                                    <li>A: Tiene antígeno A</li>
+                                    <li>B: Tiene antígeno B</li>
+                                    <li>AB: Tiene ambos antígenos</li>
+                                    <li>O: No tiene antígenos A ni B</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="card">
+                            <h3 class="card-title"><i class="fas fa-plus-circle"></i> Factor Rh</h3>
+                            <div class="card-content">
+                                <ul class="list-group">
+                                    <li>Rh+: Tiene factor Rh (96% en Bolivia)</li>
+                                    <li>Rh-: No tiene factor Rh (4% en Bolivia)</li>
+                                    <li>Descubierto por Landsteiner en 1940</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <h3 class="mt-4" style="color: #dc3545; font-size: 1.5rem;">Compatibilidad</h3>
+                    <div class="table-container">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Grupo Sanguíneo</th>
+                                    <th>Puede donar a</th>
+                                    <th>Puede recibir de</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>O- (Donante universal)</td>
+                                    <td>Todos los grupos</td>
+                                    <td>O-</td>
+                                </tr>
+                                <tr>
+                                    <td>O+</td>
+                                    <td>O+, A+, B+, AB+</td>
+                                    <td>O+, O-</td>
+                                </tr>
+                                <tr>
+                                    <td>A-</td>
+                                    <td>A-, A+, AB-, AB+</td>
+                                    <td>A-, O-</td>
+                                </tr>
+                                <tr>
+                                    <td>A+</td>
+                                    <td>A+, AB+</td>
+                                    <td>A+, A-, O+, O-</td>
+                                </tr>
+                                <tr>
+                                    <td>B-</td>
+                                    <td>B-, B+, AB-, AB+</td>
+                                    <td>B-, O-</td>
+                                </tr>
+                                <tr>
+                                    <td>B+</td>
+                                    <td>B+, AB+</td>
+                                    <td>B+, B-, O+, O-</td>
+                                </tr>
+                                <tr>
+                                    <td>AB-</td>
+                                    <td>AB-, AB+</td>
+                                    <td>AB-, A-, B-, O-</td>
+                                </tr>
+                                <tr>
+                                    <td>AB+ (Receptor universal)</td>
+                                    <td>AB+</td>
+                                    <td>Todos los grupos</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Slide 7: Llamado a la Acción -->
+            <div class="slide" id="slide7">
+                <div class="slide-header">
+                    <div class="slide-icon">
+                        <i class="fas fa-hands-helping"></i>
+                    </div>
+                    <h2 class="slide-title">Sé Parte de la Solución</h2>
+                </div>
+                
+                <div class="slide-content">
+                    <div class="card-container">
+                        <div class="card">
+                            <h3 class="card-title"><i class="fas fa-calendar-alt"></i> Frecuencia de Donación</h3>
+                            <div class="card-content">
+                                <ul class="list-group">
+                                    <li>Hombres: cada 3 meses</li>
+                                    <li>Mujeres: cada 4 meses</li>
+                                    <li>Dona de forma regular, no solo en emergencias</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="card">
+                            <h3 class="card-title"><i class="fas fa-info-circle"></i> Después de Donar</h3>
+                            <div class="card-content">
+                                <ul class="list-group">
+                                    <li>Mantén presión en el sitio de extracción</li>
+                                    <li>Toma abundante líquido</li>
+                                    <li>Evita exposición al sol y esfuerzos físicos</li>
+                                    <li>Si te sientes mareado, siéntate y respira profundamente</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="card mt-4">
+                        <h3 class="card-title"><i class="fas fa-bullhorn"></i> Por Qué Asociarse</h3>
+                        <div class="card-content">
+                            <p>El Programa Nacional de Sangre promueve la creación de asociaciones para:</p>
+                            <ul class="list-group">
+                                <li>Defender la donación voluntaria y altruista</li>
+                                <li>Promover colectas de sangre</li>
+                                <li>Informar sobre el uso de la sangre donada</li>
+                                <li>Vigilar la salud de donantes y receptores</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="text-center mt-5">
+                        <h3 style="color: #dc3545; font-size: 1.8rem; margin-bottom: 20px;">¡Tu donación hace la diferencia!</h3>
+                        <p style="font-size: 1.3rem;">"La sangre no puede fabricarse. Solo puede provenir de generosos donantes."</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="controls">
+            <button class="btn btn-restart" id="btn-restart">
+                <i class="fas fa-redo"></i> Reiniciar
+            </button>
+            
+            <div class="progress-container">
+                <div class="progress-bar" id="progress-bar"></div>
+            </div>
+            
+            <div class="counter" id="counter">1/7</div>
+            
+            <button class="btn" id="btn-next">
+                Siguiente <i class="fas fa-arrow-right"></i>
+            </button>
+        </div>
+    </div>
+    
+    <footer>
+        <p><strong>Dona sangre. Dona vida. ❤️</strong></p>
+        <p>Busca el banco de sangre más cercano en tu ciudad</p>
+        
+        <div class="blood-banks">
+            <span class="city-tag">La Paz</span>
+            <span class="city-tag">Santa Cruz</span>
+            <span class="city-tag">Cochabamba</span>
+            <span class="city-tag">Sucre</span>
+            <span class="city-tag">Tarija</span>
+            <span class="city-tag">Oruro</span>
+            <span class="city-tag">Potosí</span>
+            <span class="city-tag">Beni</span>
+            <span class="city-tag">Pando</span>
+        </div>
+        
+        <p class="mt-3">Programa Nacional de Sangre - Ministerio de Salud y Deportes de Bolivia</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const slides = document.querySelectorAll('.slide');
+            const progressBar = document.getElementById('progress-bar');
+            const btnNext = document.getElementById('btn-next');
+            const btnRestart = document.getElementById('btn-restart');
+            const counter = document.getElementById('counter');
+            
+            let currentSlide = 0;
+            const totalSlides = slides.length;
+            let autoAdvance;
+            
+            // Función para mostrar un slide específico
+            function showSlide(index) {
+    // Ocultar todos os slides
+    slides.forEach(slide => slide.classList.remove('active'));
+
+    // Mostrar o slide atual
+    slides[index].classList.add('active');
+
+    // Scroll para o topo da página
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+
+    // Atualizar a barra de progresso
+    const progressPercentage = ((index + 1) / totalSlides) * 100;
+    progressBar.style.width = `${progressPercentage}%`;
+
+    // Atualizar o contador
+    counter.textContent = `${index + 1}/${totalSlides}`;
+
+    // Atualizar o estado do botão
+    if (index === totalSlides - 1) {
+        btnNext.innerHTML = 'Finalizar <i class="fas fa-check"></i>';
+    } else {
+        btnNext.innerHTML = 'Siguiente <i class="fas fa-arrow-right"></i>';
+    }
+}
+
+            
+            // Función para avanzar al siguiente slide
+            function nextSlide() {
+                if (currentSlide < totalSlides - 1) {
+                    currentSlide++;
+                } else {
+                    // Si estamos en el último slide, volver al primero
+                    currentSlide = 0;
+                }
+                showSlide(currentSlide);
+            }
+            
+            /* Función para iniciar el avance automático
+            function startAutoAdvance() {
+                autoAdvance = setInterval(() => {
+                    nextSlide();
+                }, 5000); // Avanzar cada 5 segundos
+            }
+            
+            // Función para detener el avance automático
+            function stopAutoAdvance() {
+                clearInterval(autoAdvance);
+            } */
+
+            
+            
+            // Event listeners
+            btnNext.addEventListener('click', () => {
+                if (currentSlide === totalSlides - 1) {
+                    // Si estamos en el último slide, volver al primero al hacer clic en Finalizar
+                    currentSlide = 0;
+                } else {
+                    currentSlide++;
+                }
+                showSlide(currentSlide);
+                
+                // Reiniciar el temporizador automático
+                stopAutoAdvance();
+                startAutoAdvance();
+            });
+            
+            btnRestart.addEventListener('click', () => {
+                currentSlide = 0;
+                showSlide(currentSlide);
+                
+                // Reiniciar el temporizador automático
+                stopAutoAdvance();
+                startAutoAdvance();
+            });
+            
+            // Iniciar con el primer slide
+            showSlide(currentSlide);
+            
+            // Iniciar avance automático
+            startAutoAdvance();
+            
+            // Pausar avance automático cuando el mouse está sobre la presentación
+            const presentation = document.querySelector('.presentation-container');
+            presentation.addEventListener('mouseenter', stopAutoAdvance);
+            presentation.addEventListener('mouseleave', startAutoAdvance);
+        });
+    </script>
+</body>
+</html>
