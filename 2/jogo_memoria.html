@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jogo da Memória do Amor</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@400;600&display=swap');
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #ff7eb3 0%, #ff758c 100%);
+      min-height: 100vh;
+    }
+
+    .romantic-title {
+      font-family: 'Dancing Script', cursive;
+    }
+
+    .card {
+      perspective: 1000px;
+      transform-style: preserve-3d;
+      transition: transform 0.6s;
+      cursor: pointer;
+    }
+
+    .card-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      transform-style: preserve-3d;
+      transition: transform 0.6s;
+    }
+
+    .card.flipped .card-inner {
+      transform: rotateY(180deg);
+    }
+
+    .card-front, .card-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .card-front {
+      transform: rotateY(180deg);
+    }
+
+    .card-front img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 12px;
+    }
+
+    .card-back {
+      background: linear-gradient(45deg, #f9d1e0, #fce4ec);
+      border: 2px dashed #ff4b8d;
+    }
+
+    #romantic-page {
+      font-family: 'Dancing Script', cursive;
+    }
+  </style>
+</head>
+<body class="flex flex-col items-center justify-center p-4">
+  <div class="text-center mb-6">
+    <h1 class="romantic-title text-4xl md:text-5xl text-white mb-2 drop-shadow-lg">Jogo da Memória do Amor</h1>
+    <p class="text-white text-lg">Encontre todos os pares com fotos do casal!</p>
+  </div>
+
+  <div class="bg-white bg-opacity-90 rounded-xl p-6 shadow-lg max-w-3xl w-full">
+    <div id="game-board" class="grid grid-cols-4 gap-3 md:gap-4"></div>
+  </div>
+
+  <div id="romantic-page" class="hidden fixed inset-0 bg-white flex flex-col items-center justify-center p-8 z-50">
+    <h2 class="text-4xl text-pink-600 font-bold mb-4">Você venceu!</h2>
+    <p class="text-2xl text-center max-w-xl text-gray-700">você é tudo para mim porque com você eu descobri o verdadeiro significado do amor, da parceria e da felicidade.</p>
+  </div>
+
+  <script>
+    const imagePaths = [
+      'img1.jpg', 'img2.jpg', 'img3.jpg', 'img4.jpg',
+      'img5.jpg', 'img6.jpg', 'img7.jpg', 'img8.jpg'
+    ];
+    const images = [...imagePaths, ...imagePaths];
+    let flippedCards = [], matchedPairs = 0;
+
+    function shuffle(arr) {
+      return arr.sort(() => Math.random() - 0.5);
+    }
+
+    function createCard(imageSrc) {
+      const card = document.createElement('div');
+      card.className = 'card aspect-square';
+
+      const cardInner = document.createElement('div');
+      cardInner.className = 'card-inner w-full h-full';
+
+      const front = document.createElement('div');
+      front.className = 'card-front';
+      front.innerHTML = `<img src="${imageSrc}" alt="Foto do casal">`;
+
+      const back = document.createElement('div');
+      back.className = 'card-back';
+      back.innerHTML = '<svg class="heart-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#ff4b8d" width="40" height="40"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>';
+
+      cardInner.appendChild(front);
+      cardInner.appendChild(back);
+      card.appendChild(cardInner);
+
+      card.addEventListener('click', () => flipCard(card, imageSrc));
+      return card;
+    }
+
+    function flipCard(card, imageSrc) {
+      if (flippedCards.length < 2 && !card.classList.contains('flipped')) {
+        card.classList.add('flipped');
+        flippedCards.push({ card, imageSrc });
+
+        if (flippedCards.length === 2) {
+          const [first, second] = flippedCards;
+          if (first.imageSrc === second.imageSrc) {
+            matchedPairs++;
+            flippedCards = [];
+            if (matchedPairs === imagePaths.length) {
+              setTimeout(() => document.getElementById('romantic-page').classList.remove('hidden'), 500);
+            }
+          } else {
+            setTimeout(() => {
+              first.card.classList.remove('flipped');
+              second.card.classList.remove('flipped');
+              flippedCards = [];
+            }, 1000);
+          }
+        }
+      }
+    }
+
+    function startGame() {
+      const board = document.getElementById('game-board');
+      shuffle(images).forEach(image => {
+        board.appendChild(createCard(image));
+      });
+    }
+
+    startGame();
+  </script>
+</body>
+</html>
+
